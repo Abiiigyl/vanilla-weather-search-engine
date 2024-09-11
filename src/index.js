@@ -6,9 +6,40 @@ function showCity(city) {
 
 function showTemperature(response) {
   let temperature = document.querySelector("#weather-temperature");
+  let description = document.querySelector("#description");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let time = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
+  
+  
   temperature.innerHTML = Math.round(response.data.temperature.current);
+  description.innerHTML = response.data.condition.description;
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+  wind.innerHTML = `${response.data.wind.speed}km/h`;
   let h1 = document.querySelector("#city");
   h1.innerHTML = response.data.city;
+  time.innerHTML = formatDate(date);
+}
+
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let day = days[date.getDay()];
+  if (minutes < 10){
+    minutes = `0${getMinutes}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
 }
 
 function searchCity(event) {
@@ -18,6 +49,7 @@ function searchCity(event) {
   h1.innerHTML = `${searchInput.value}`;
   showCity(searchInput.value);
 }
+
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchCity);
