@@ -13,15 +13,15 @@
   <div class="container">
   <header>
     <img src="images/weather logo.png" alt="">
-    <form class="search-form">
-      <input type="search" placeholder="Enter a city..." class="search-input" required>
+    <form class="search-form" id="search-form">
+      <input type="search" placeholder="Enter a city..." class="search-input" id="search-input" required>
       <input type="submit" value="Search" class="search-button">
     </form>
   </header>
   <main>
     <div class="weather-data">
     <div>
-     <h1 class="city">Nairobi</h1>
+     <h1 class="city" id="city">Nairobi</h1>
      <p class="details">
       Tuesday 13:52, scattered clouds
       <br />
@@ -46,5 +46,6 @@
     <a href="#" target="_blank">hosted on Netlify</a> 
   </footer>
   </div>
+  <script src="src/index.js"></script>
 </body>
 </html>
