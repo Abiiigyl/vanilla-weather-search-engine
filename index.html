@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -21,7 +22,7 @@
   <main>
     <div class="weather-data">
     <div>
-     <h1 class="city" id="city">Nairobi</h1>
+     <h1 class="city" id="city"></h1>
      <p class="details">
       Tuesday 13:52, scattered clouds
       <br />
@@ -30,7 +31,7 @@
      </div>
      <div class="content">
       <div class="weather-icon">🌞</div>
-      <div class="weather-temperature">26</div>
+      <div class="weather-temperature" id="weather-temperature"></div>
       <div class="weather-unit">°C</div>
      </div>
      </div>
