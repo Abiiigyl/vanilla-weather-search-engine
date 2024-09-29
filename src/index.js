@@ -21,6 +21,8 @@ function showTemperature(response) {
   let h1 = document.querySelector("#city");
   h1.innerHTML = response.data.city;
   time.innerHTML = formatDate(date);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -50,7 +52,15 @@ function searchCity(event) {
   h1.innerHTML = `${searchInput.value}`;
   showCity(searchInput.value);
 }
-function displayForecast() {
+
+function getForecast(city) {
+  let apiKey = "8e443a1126360b143996f5ft64df2bo5";
+  let apiUrl =`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml= "";
 
@@ -78,4 +88,4 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchCity);
 
 showCity("Nairobi");
-displayForecast();
+
