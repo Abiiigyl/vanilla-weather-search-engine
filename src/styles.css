@@ -89,9 +89,10 @@ main {
   
 }
 .forecast-icon {
-  font-size: 40px;
-  text-align: center;
-  margin-bottom: 5px;
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin: 0 auto;
 }
 .forecast-temperatures {
   text-align: center;
